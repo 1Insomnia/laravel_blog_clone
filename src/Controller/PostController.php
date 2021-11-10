@@ -20,14 +20,27 @@ class PostController extends AbstractController
     }
 
     /**
-     * @param Post $post
+     * @param string $slug
      * @return Response
      */
-    #[Route('/article-{slug}', name: 'post_read')]
-    public function read(Post $post): Response
+    #[Route('/{slug}', name: 'post_read')]
+    public function read(string $slug): Response
     {
-        return $this->render('post/read.html.twig', [
-            "post" => $post
-        ]);
+        $post = $this->getDoctrine()->getRepository(Post::class)->findOneBy(["slug" => $slug]);
+        $category = $this->getDoctrine()->getRepository(Category::class)->findOneBy(["slug" => $slug]);
+
+        if (!empty($post)) {
+            return $this->render('post/read.html.twig', [
+                "post" => $post
+            ]);
+        }
+
+        if (!empty($category)) {
+            return $this->render('category/read.html.twig', [
+                'title' => ucfirst($category->getName()),
+                'category' => $category]);
+        }
+
+        throw $this->createNotFoundException("Oops page doesn't exist");
     }
 }

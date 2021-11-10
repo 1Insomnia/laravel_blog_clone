@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{% endblock %}
+{% block title %}{{ title }} - {% endblock %}
 {% block body %}
     <section id="category" class="category">
         <div class="max-w-screen-sm">
-            <h1 class="title">{{ category.name }}</h1>
+            <h1 class="title">{{ title }}</h1>
             {% for post in category.posts %}
-                <a class="post-card" href="{{ path('post_read', {slug: post.slug} ) }}">
+                <a class="post-card" href="{{ path('post_read', { slug: post.slug } ) }}">
                     <img src="https://source.unsplash.com/random"
                          class="post-card__image" alt="test" />
                     <div class="post-card__container">

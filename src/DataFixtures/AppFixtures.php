@@ -41,7 +41,7 @@ class AppFixtures extends Fixture
             for ($i = 1; $i <= 10; $i++) {
                 $post = new Post();
                 $post->setTitle("Article {$i}");
-                $post->setSlug("article-{$val['name']}-{$i}");
+                $post->setSlug("{$category->getSlug()}-{$val['name']}-{$i}");
                 $post->setDescription(str_repeat("Description {$i}", 10));
                 $post->setBody(str_repeat("Content {$i}", 15));
                 $post->setAuthor("Author {$i}");

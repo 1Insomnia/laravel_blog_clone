@@ -5,6 +5,7 @@
   min-height: 100vh;
 }
 
+// Header
 .header {
   padding: 1.125rem 0;
   margin-bottom: 2.5rem;
@@ -32,6 +33,7 @@
     align-items: center;
   }
 
+  // Nav
   .nav {
     margin-top: 2.5rem;
 
@@ -58,10 +60,10 @@
   }
 }
 
+// Logos
 .logomark {
   width: 2.5rem;
 }
-
 .logotype {
   margin-left: 1rem;
   width: 6rem;
@@ -128,6 +130,13 @@
     box-shadow: var.$shadow-large;
   }
 }
+
+// Start Category
+.title {
+  font-size: 32px;
+  margin-bottom: 80px;
+}
+// End Category
 
 // Start End
 .footer {

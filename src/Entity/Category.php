@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\CategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,9 +37,10 @@ class Category
     private \DateTimeImmutable $createdAt;
 
     /**
-     * @ORM\OneToMany(targetEntity="Post", mappedBy="category")
+     * @var Collection
+     * @ORM\OneToMany(targetEntity="App\Entity\Post", mappedBy="category")
      */
-    private ArrayCollection $posts;
+    private Collection $posts;
 
     /**
      * Create Timestamp on new instance
@@ -99,9 +101,9 @@ class Category
     }
 
     /**
-     * @return ArrayCollection
+     * @return Collection|array
      */
-    public function getPosts(): ArrayCollection
+    public function getPosts(): Collection|array
     {
         return $this->posts;
     }

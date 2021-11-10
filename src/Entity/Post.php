@@ -54,7 +54,7 @@ class Post
 
     /**
      * @var Category
-     * @ORM\ManyToOne(targetEntity="Category", inversedBy="posts")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="posts")
      */
     private Category $category;
 

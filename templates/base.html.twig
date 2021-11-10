@@ -12,9 +12,10 @@
         {% endblock %}
     </head>
     <body>
-        {% include "partials/header..html.twig" %}
+        {% include "partials/header.html.twig" %}
         <main class="max-w-screen-sm">
             {% block body %}{% endblock %}
         </main>
+        {% include "partials/footer.html.twig" %}
     </body>
 </html>

@@ -125,3 +125,19 @@
   }
 }
 
+// Start End
+.footer {
+  margin-top: 80px;
+  border: 1px solid var.$border-light;
+
+  &__content {
+    padding: 40px 0;
+    text-align: center;
+
+    a {
+      text-decoration: underline;
+      text-decoration-color: inherit;
+    }
+  }
+}
+// End Footer

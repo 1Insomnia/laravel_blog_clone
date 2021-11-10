@@ -1,6 +1,10 @@
 @use "./helpers";
 @use "./variables" as var;
 
+.main {
+  min-height: 100vh;
+}
+
 .header {
   padding: 1.125rem 0;
   margin-bottom: 2.5rem;

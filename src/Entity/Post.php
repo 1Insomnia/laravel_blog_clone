@@ -53,6 +53,22 @@ class Post
     private \DateTimeImmutable $publishedAt;
 
     /**
+     * @var Category
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="posts")
+     */
+    private Category $category;
+
+    /**
+     * @param Category $category
+     * @return Post
+     */
+    public function setCategory(Category $category): Post
+    {
+        $this->category = $category;
+        return $this;
+    }
+
+    /**
      * @return void
      */
     public function __construct()
@@ -192,5 +208,13 @@ class Post
     {
         $this->publishedAt = $publishedAt;
         return $this;
+    }
+
+    /**
+     * @return Category
+     */
+    public function getCategory(): Category
+    {
+        return $this->category;
     }
 }

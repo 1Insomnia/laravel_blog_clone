@@ -46,6 +46,7 @@ class Category
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
+        $this->posts = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -95,16 +96,6 @@ class Category
     public function getCreatedAt(): \DateTimeImmutable
     {
         return $this->createdAt;
-    }
-
-    /**
-     * @param \DateTimeImmutable $createdAt
-     * @return Category
-     */
-    public function setCreatedAt(\DateTimeImmutable $createdAt): Category
-    {
-        $this->createdAt = $createdAt;
-        return $this;
     }
 
     /**

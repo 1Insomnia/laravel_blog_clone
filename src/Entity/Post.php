@@ -201,16 +201,6 @@ class Post
     }
 
     /**
-     * @param \DateTimeImmutable $publishedAt
-     * @return Post
-     */
-    public function setPublishedAt(\DateTimeImmutable $publishedAt): Post
-    {
-        $this->publishedAt = $publishedAt;
-        return $this;
-    }
-
-    /**
      * @return Category
      */
     public function getCategory(): Category

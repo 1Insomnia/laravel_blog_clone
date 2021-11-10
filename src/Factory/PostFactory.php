@@ -32,24 +32,20 @@ final class PostFactory extends ModelFactory
     public function __construct()
     {
         parent::__construct();
-
-        // TODO inject services if required (https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#factories-as-services)
     }
 
     protected function getDefaults(): array
     {
         $slugger = new AsciiSlugger();
-        $title = self::faker()->text($maxNbChars = 80);
+        $title = self::faker()->text(80);
         $slug = $slugger->slug($title, "-")->lower();
         return [
-            // TODO add your default values here (https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#model-factories)
             'title' => $title,
             'slug' => $slug,
             'description' => self::faker()->text(),
             'body' => self::faker()->text(),
-            'author' => self::faker()->text(),
+            'author' => self::faker()->text(30),
             'mainImage' => self::faker()->text(),
-            //'publishedAt' => self::faker()->datetime(),
         ];
     }
 

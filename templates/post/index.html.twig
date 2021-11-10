@@ -3,7 +3,7 @@
 {% block body %}
     {% for post in posts %}
         <a class="post-card" href="{{ path('post_read', {slug: post.slug} ) }}">
-            <img src="https://laravel-blog-assets.s3.amazonaws.com/meZx1nJ84JUaNyICBxozi12NZ2Zickge37yAioLY.png"
+            <img src="https://source.unsplash.com/random"
                  class="post-card__image" alt="test" />
             <div class="post-card__container">
                 <div class="post-card__body">
@@ -15,8 +15,11 @@
                     </p>
                 </div>
                 <div class="post-card__footer">
-                    <img src="" class="post-card__footer__image" alt="test">
-                    <span class="post-card__footer__author">{{ post.author }}</span>
+                    <div class="post-card__footer__author">
+                        <img src="https://laravel-blog-assets.s3.amazonaws.com/meZx1nJ84JUaNyICBxozi12NZ2Zickge37yAioLY.png"
+                             alt="test">
+                        <span>{{ post.author }}</span>
+                    </div>
                     <span class="post-card__footer__date">{{ post.publishedAt|date("M, d Y") }}</span>
                 </div>
             </div>

@@ -1,45 +1,57 @@
 @use "./helpers";
-@use "./variables";
+@use "./variables" as var;
 
 .header {
   padding: 1.125rem 0;
   margin-bottom: 2.5rem;
-}
 
-.header__container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  // Header outer container
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-.header__logos a {
-  display: block;
-}
+    @include helpers.mq(1024px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
 
-.header__logos {
-  display: flex;
-  align-items: center;
-}
+  // Header Link
+  &__logos a {
+    display: block;
+  }
 
-.nav {
-  margin-top: 2.5rem;
-}
+  // Header Logos
+  &__logos {
+    display: flex;
+    align-items: center;
+  }
 
-.nav__list {
-  display: flex;
-  align-items: center;
-}
+  .nav {
+    margin-top: 2.5rem;
 
-.nav__list a:not(:first-child) {
-  margin-left: 20px;
-}
+    @include helpers.mq(1024px) {
+      margin-top: 0;
+    }
 
-.nav__link {
-  text-transform: uppercase;
-}
+    &__list {
+      display: flex;
+      align-items: center;
 
-.nav__link:hover {
-  text-decoration: underline;
+      a:not(:first-child) {
+        margin-left: 20px;
+      }
+    }
+
+    &__link {
+      text-transform: uppercase;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }
 
 .logomark {
@@ -51,6 +63,65 @@
   width: 6rem;
 }
 
-.post-card__image {
-  height: 12rem;
+// Post Card
+.post-card {
+  display: block;
+
+  padding: 20px;
+  box-shadow: var.$shadow-medium;
+  border-radius: var.$radius;
+  border: 1px solid var.$border-light;
+
+  transition: all ease-in .3s;
+
+  margin-bottom: 40px;
+
+  &__image {
+    height: 12rem;
+    margin-bottom: 20px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 24px;
+  }
+
+  &__description {
+    font-family: var.$font-serif, var.$font-safe-serif;
+    line-height: 2;
+    margin-bottom: 24px;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: var.$text-light;
+
+    &__author {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+
+      img {
+        height: 48px;
+        width: 48px;
+        border-radius: 100%;
+      }
+    }
+
+    &__date {
+
+    }
+  }
+
+  &:hover {
+    transform: translateY(-20px);
+    box-shadow: var.$shadow-large;
+  }
 }
+

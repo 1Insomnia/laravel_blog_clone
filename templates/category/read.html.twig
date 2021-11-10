@@ -4,7 +4,9 @@
 {% block body %}
     <section id="category" class="category">
         <div class="max-w-screen-sm">
-            <h1 class="title">{{ title }}</h1>
+            <div class="category__title__container">
+                <h1 class="category__title">{{ title }}</h1>
+            </div>
             {% for post in category.posts %}
                 <a class="post-card" href="{{ path('post_read', { slug: post.slug } ) }}">
                     <img src="https://source.unsplash.com/random"

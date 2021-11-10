@@ -31,6 +31,7 @@ class PostController extends AbstractController
 
         if (!empty($post)) {
             return $this->render('post/read.html.twig', [
+                'title' => ucfirst((string) $post->getCategory()->getName()),
                 "post" => $post
             ]);
         }

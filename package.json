@@ -6,6 +6,8 @@
         "file-loader": "^6.0.0",
         "prettier": "^2.4.1",
         "regenerator-runtime": "^0.13.2",
+        "sass": "^1.43.4",
+        "sass-loader": "^12.3.0",
         "stimulus": "^2.0.0",
         "stylelint": "^14.0.1",
         "stylelint-config-standard": "^23.0.0",
@@ -19,9 +21,5 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress"
-    },
-    "dependencies": {
-        "sass": "^1.43.4",
-        "sass-loader": "^12.3.0"
     }
 }

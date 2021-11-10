@@ -2,9 +2,11 @@
 
 {% block title %} Blog {{ post.title }} {% endblock %}
 {% block body %}
-    <div>
-        <h2>{{ post.title }}</h2>
+    <section id="post">
+        <div class="post__title__container">
+            <h1 class="post__title">{{ title }}: {{ post.title }}</h1>
+        </div>
         <small>{{ post.publishedAt|date("d/m/Y") }}</small>
         <p>{{ post.body }}</p>
-    </div>
+    </section>
 {% endblock %}

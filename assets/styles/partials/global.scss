@@ -5,6 +5,20 @@
   min-height: 100vh;
 }
 
+.category__title__container {
+  margin-bottom: 80px;
+}
+
+.category__title {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.post__title {
+  font-size: 32px;
+  font-weight: bold;
+}
+
 // Header
 .header {
   padding: 1.125rem 0;
@@ -64,6 +78,7 @@
 .logomark {
   width: 2.5rem;
 }
+
 .logotype {
   margin-left: 1rem;
   width: 6rem;
@@ -78,7 +93,7 @@
   border-radius: var.$radius;
   border: 1px solid var.$border-light;
 
-  transition: all ease-in .3s;
+  transition: transform .3s cubic-bezier(.34,2,.6,1),box-shadow .2s ease;
 
   margin-bottom: 40px;
 
@@ -119,25 +134,13 @@
         border-radius: 100%;
       }
     }
-
-    &__date {
-
-    }
   }
 
   &:hover {
-    transform: translateY(-20px);
+    transform: translateY(-5px);
     box-shadow: var.$shadow-large;
   }
 }
-
-// Start Category
-.title {
-  font-size: 32px;
-  margin-bottom: 80px;
-  font-weight: bold;
-}
-// End Category
 
 // Start End
 .footer {
@@ -154,4 +157,5 @@
     }
   }
 }
+
 // End Footer

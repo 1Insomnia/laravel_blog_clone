@@ -1,0 +1,56 @@
+@use "./helpers";
+@use "./variables";
+
+.header {
+  padding: 1.125rem 0;
+  margin-bottom: 2.5rem;
+}
+
+.header__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header__logos a {
+  display: block;
+}
+
+.header__logos {
+  display: flex;
+  align-items: center;
+}
+
+.nav {
+  margin-top: 2.5rem;
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+}
+
+.nav__list a:not(:first-child) {
+  margin-left: 20px;
+}
+
+.nav__link {
+  text-transform: uppercase;
+}
+
+.nav__link:hover {
+  text-decoration: underline;
+}
+
+.logomark {
+  width: 2.5rem;
+}
+
+.logotype {
+  margin-left: 1rem;
+  width: 6rem;
+}
+
+.post-card__image {
+  height: 12rem;
+}

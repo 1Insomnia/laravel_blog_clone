@@ -1,25 +1,25 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}The Laravel Blog{% endblock %}
-
 {% block body %}
-    <div class="wrapper">
-        <h1 class="title">Posts</h1>
-        <div class="">
-            {% for post in posts %}
-                <div class="post">
-                    <div>
-                        <h3>{{ post.title }}</h3>
-                    </div>
-                    <div>
-                        <p> {{ post.description }}</p>
-                    </div>
-                    <div>
-                        <p>{{ post.author }}</p>
-                        <p>{{ post.publishedAt|date("M, d Y") }}</p>
-                    </div>
+    {% for post in posts %}
+        <a class="post-card" href="{{ path('post_read', {slug: post.slug} ) }}">
+            <img src="https://laravel-blog-assets.s3.amazonaws.com/meZx1nJ84JUaNyICBxozi12NZ2Zickge37yAioLY.png"
+                 class="post-card__image" alt="test" />
+            <div class="post-card__container">
+                <div class="post-card__body">
+                    <h2 class="post-card__title">
+                        {{ post.title }}
+                    </h2>
+                    <p class="post-card__description">
+                        {{ post.description }}
+                    </p>
                 </div>
-            {% endfor %}
-        </div>
-    </div>
+                <div class="post-card__footer">
+                    <img src="" class="post-card__footer__image" alt="test">
+                    <span class="post-card__footer__author">{{ post.author }}</span>
+                    <span class="post-card__footer__date">{{ post.publishedAt|date("M, d Y") }}</span>
+                </div>
+            </div>
+        </a>
+    {% endfor %}
 {% endblock %}

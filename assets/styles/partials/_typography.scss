@@ -1,0 +1,5 @@
+@use "./variables" as var;
+
+html {
+  font-family: var.$font-sans, var.$font-safe-sans;
+}

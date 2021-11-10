@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}{% endblock %}The Laravel Blog</title>
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -12,11 +12,9 @@
         {% endblock %}
     </head>
     <body>
-        <header>
-            <div>
-                <h1>Header</h1>
-            </div>
-        </header>
-        {% block body %}{% endblock %}
+        {% include "partials/header..html.twig" %}
+        <main class="max-w-screen-sm">
+            {% block body %}{% endblock %}
+        </main>
     </body>
 </html>

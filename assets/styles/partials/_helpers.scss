@@ -1,0 +1,29 @@
+// Container
+@mixin mq ($size){
+  @media (min-width: $size) {
+    @content;
+  }
+}
+
+.max-w-screen-sm {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  width: 100%;
+}
+
+@include mq(768px){
+  .container {
+    max-width: 768px;
+  }
+}
+
+@include mq(1024px){
+  .container {
+    max-width: 850px;
+  }
+}

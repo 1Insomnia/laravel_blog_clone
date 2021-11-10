@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Blog {{ post.title }} {% endblock %}
+{% block body %}
+    <div>
+        <h2>{{ post.title }}</h2>
+        <small>{{ post.publishedAt|date("d/m/Y") }}</small>
+        <p>{{ post.content }}</p>
+        <p>{{ post.comments }}</p>
+    </div>
+{% endblock %}

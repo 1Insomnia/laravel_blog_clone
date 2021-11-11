@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Category;
 use App\Entity\Post;
+use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -37,6 +38,11 @@ class AppFixtures extends Fixture
             $category->setSlug($val['slug']);
             $manager->persist($category);
 
+            $user = new User();
+            $user->setEmail("email.{$key}@mail.com");
+            $user->setUsername("author {$key}");
+            $manager->persist($user);
+
             // Create posts related to the category
             for ($i = 1; $i <= 10; $i++) {
                 $post = new Post();
@@ -44,9 +50,9 @@ class AppFixtures extends Fixture
                 $post->setSlug("{$category->getSlug()}-{$val['name']}-{$i}");
                 $post->setDescription(str_repeat("Description {$i}", 10));
                 $post->setBody(str_repeat("Content {$i}", 15));
-                $post->setAuthor("Author {$i}");
                 $post->setMainImage("main-image-{$val['name']}-{$i}");
                 $post->setCategory($category);
+                $post->setAuthor($user);
                 $manager->persist($post);
             }
         }

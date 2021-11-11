@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\PostRepository;
+use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -38,11 +39,6 @@ class Post
     private string $body;
 
     /**
-     * @ORM\Column(type="string")
-     */
-    private string $author;
-
-    /**
      * @ORM\Column(type="string", unique=true)
      */
     private string $mainImage;
@@ -50,13 +46,18 @@ class Post
     /**
      * @ORM\Column(type="datetime_immutable")
      */
-    private \DateTimeImmutable $publishedAt;
+    private DateTimeImmutable $publishedAt;
 
     /**
      * @var Category
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="posts")
      */
     private Category $category;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="posts")
+     */
+    private User $author;
 
     /**
      * @param Category $category
@@ -73,7 +74,7 @@ class Post
      */
     public function __construct()
     {
-        $this->publishedAt = new \DateTimeImmutable();
+        $this->publishedAt = new DateTimeImmutable();
     }
 
     /**
@@ -159,24 +160,6 @@ class Post
     /**
      * @return string
      */
-    public function getAuthor(): string
-    {
-        return $this->author;
-    }
-
-    /**
-     * @param string $author
-     * @return Post
-     */
-    public function setAuthor(string $author): Post
-    {
-        $this->author = $author;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
     public function getMainImage(): string
     {
         return $this->mainImage;
@@ -193,9 +176,9 @@ class Post
     }
 
     /**
-     * @return \DateTimeImmutable
+     * @return DateTimeImmutable
      */
-    public function getPublishedAt(): \DateTimeImmutable
+    public function getPublishedAt(): DateTimeImmutable
     {
         return $this->publishedAt;
     }
@@ -206,5 +189,17 @@ class Post
     public function getCategory(): Category
     {
         return $this->category;
+    }
+
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?User $author): self
+    {
+        $this->author = $author;
+
+        return $this;
     }
 }

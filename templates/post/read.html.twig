@@ -1,12 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Blog {{ post.title }} {% endblock %}
+{% block title %} Blog {{ title }}: {{ post.title }} {% endblock %}
 {% block body %}
-    <section id="post">
-        <div class="post__title__container">
-            <h1 class="post__title">{{ title }}: {{ post.title }}</h1>
+    <section class="post container" id="post">
+        <h1 class="post__title">{{ title }}: {{ post.title }}</h1>
+        <div class="post__infos">
+            <span class="post__infos__date">{{ post.publishedAt|date("M, d Y") }}</span>-<a
+                    href="{{ path('post_read', {slug: post.category.slug}) }}"
+                    class="post__infos__category">#{{ post.category.name }}</a>
         </div>
-        <small>{{ post.publishedAt|date("d/m/Y") }}</small>
-        <p>{{ post.body }}</p>
+        <p class="post__body">{{ post.body }}</p>
+        <div class="post__author">
+            <img src="https://laravel-blog-assets.s3.amazonaws.com/meZx1nJ84JUaNyICBxozi12NZ2Zickge37yAioLY.png" alt=""
+                 class="post__author__image">
+            <div>
+                <p class="post__author__name">By <span>{{ post.author.username }}</span></p>
+                <p>Software Developer at Laravel, working on Forge and Envoyer.
+                    Find me on Twitter, GitHub or my blog.</p>
+            </div>
+        </div>
     </section>
 {% endblock %}
